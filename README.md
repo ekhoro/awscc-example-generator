@@ -1,0 +1,66 @@
+# AWSCC Example Generator
+
+Generate high-quality Terraform examples for AWS Cloud Control (AWSCC) provider resources using Amazon Q.
+
+## What This Does
+
+This repository helps you generate clean, working Terraform examples for AWSCC resources that:
+- Follow existing terraform-provider-awscc patterns
+- Use realistic configurations based on CloudFormation documentation
+- Work out-of-the-box with minimal setup
+- Are ready for documentation or production use
+
+## Quick Start
+
+1. **Install Amazon Q CLI** - [Installation Guide](setup/install-amazon-q.md)
+2. **Set up Context** - [Context Setup Guide](setup/context-setup.md)
+3. **Generate Examples** - Use the provided context to generate Terraform files
+
+## What You'll Generate
+
+Single Terraform files (`.tf`) with clean resource configurations like:
+
+```terraform
+resource "awscc_appconfig_application" "example" {
+  name        = "example-application"
+  description = "Example AppConfig application for managing configuration data"
+
+  tags = [
+    {
+      key   = "Name"
+      value = "Example AppConfig Application"
+    },
+    {
+      key   = "Environment"
+      value = "dev"
+    }
+  ]
+}
+```
+
+## Repository Structure
+
+- `setup/` - Installation and configuration guides
+- `context/` - Amazon Q context file for generating examples
+- `examples/` - Sample generated Terraform files
+- `scripts/` - Helper scripts for validation
+
+## Getting Started
+
+Follow the setup guides in order:
+1. [Install Amazon Q](setup/install-amazon-q.md)
+2. [Configure Context](setup/context-setup.md)
+3. Start generating examples!
+
+## Example Generation Process
+
+1. Choose an AWSCC resource (e.g., `awscc_scheduler_schedule_group`)
+2. Ask Amazon Q: "Generate usage example for awscc_[resource_name]"
+3. Amazon Q will create a clean Terraform file following best practices
+4. Test with `terraform init`, `validate`, and `plan`
+
+## Support
+
+- Check existing examples in `examples/sample-outputs/`
+- Use the validation script in `scripts/validate.sh`
+- Refer to [terraform-provider-awscc documentation](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs)
