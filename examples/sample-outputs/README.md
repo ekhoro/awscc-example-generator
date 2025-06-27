@@ -5,7 +5,7 @@ This directory contains examples of Terraform files generated using the AWSCC co
 ## Files
 
 - `scheduler_schedule_group.tf` - EventBridge Scheduler schedule group example
-- `appconfig_application.tf` - AppConfig application example  
+- `appconfig_deployment.tf` - AppConfig deployment example (shows AWSCC + AWS provider usage)
 - `logs_log_group.tf` - CloudWatch log group example
 
 ## How These Were Generated
@@ -17,8 +17,12 @@ Generate usage example for awscc_[resource_name]
 
 For example:
 - `Generate usage example for awscc_scheduler_schedule_group`
-- `Generate usage example for awscc_appconfig_application`
+- `Generate usage example for awscc_appconfig_deployment`
 - `Generate usage example for awscc_logs_log_group`
+
+## Note on Mixed Provider Examples
+
+The `appconfig_deployment.tf` example shows how some AWSCC resources require supporting resources from the standard AWS provider. This is common for complex services where the AWSCC resource represents the final deployment step.
 
 ## Validation
 
@@ -35,6 +39,7 @@ You can use these as references for:
 - Understanding the expected output format
 - Comparing your generated examples
 - Learning AWSCC resource patterns
+- Seeing how AWSCC and AWS providers work together
 
 ## Testing
 

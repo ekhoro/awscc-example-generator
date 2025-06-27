@@ -19,9 +19,22 @@ resource "awscc_s3_bucket" "example" {
 
 **Complex Resource with Supporting Resources:**
 ```terraform
-resource "awscc_iam_role" "example" {
-  role_name = "sample_iam_role"
-  assume_role_policy_document = jsonencode({
+terraform {
+  required_providers {
+    awscc = {
+      source  = "hashicorp/awscc"
+      version = "~> 1.0"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+resource "aws_iam_role" "example" {
+  name = "example-role"
+  assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
       Action = "sts:AssumeRole"
@@ -35,7 +48,7 @@ resource "awscc_iam_role" "example" {
 
 resource "awscc_lambda_function" "example" {
   function_name = "example"
-  role          = awscc_iam_role.example.arn
+  role          = aws_iam_role.example.arn
   runtime       = "python3.10"
   handler       = "index.handler"
   code = {
@@ -62,7 +75,7 @@ resource "awscc_lambda_function" "example" {
 
 ## Generation Rules
 - Generate only a single .tf file
-- No terraform/provider blocks (examples are resource-focused)
+- Include terraform/provider blocks when using both AWS and AWSCC providers
 - No variables unless absolutely essential for the example
 - No outputs unless they demonstrate important resource attributes
 - Use direct hardcoded values (acceptable in examples)
@@ -71,3 +84,4 @@ resource "awscc_lambda_function" "example" {
 - Use "example" as resource name consistently
 - Include realistic attribute values based on CloudFormation documentation
 - Add standard tags when the resource supports them
+- When AWSCC resources require supporting resources, use the standard AWS provider for prerequisites
