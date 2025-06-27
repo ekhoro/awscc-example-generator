@@ -1,6 +1,10 @@
 # Context Setup Guide
 
-This guide shows you how to configure Amazon Q with the AWSCC example generation context.
+This guide shows you how to configure Amazon Q with the AWSCC example generation context for consistent, high-quality results.
+
+## Quick Alternative
+
+If you want to get started immediately without setting up context, check out [`quick-prompts.md`](../quick-prompts.md) for direct commands you can use right away.
 
 ## What is Context?
 

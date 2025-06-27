@@ -13,6 +13,17 @@ This repository helps you generate clean, working Terraform examples for AWSCC r
 
 ## Quick Start
 
+### Option 1: Direct Prompt (Fastest)
+```bash
+q chat "Generate a clean, working Terraform example for awscc_[resource_name] following terraform-provider-awscc patterns. Use 'example' naming, include realistic attributes, add standard tags, and keep it minimal and focused."
+```
+
+Example:
+```bash
+q chat "Generate a clean, working Terraform example for awscc_secretsmanager_secret following terraform-provider-awscc patterns. Use 'example' naming, include realistic attributes, add standard tags, and keep it minimal and focused."
+```
+
+### Option 2: Full Context Setup (More Consistent)
 1. **Install Amazon Q CLI** - [Installation Guide](setup/install-amazon-q.md)
 2. **Set up Context** - [Context Setup Guide](setup/context-setup.md)
 3. **Generate Examples** - Use the provided context to generate Terraform files
@@ -45,6 +56,7 @@ resource "awscc_appconfig_application" "example" {
 - `context/` - Amazon Q context file for generating examples
 - `examples/` - Sample generated Terraform files
 - `scripts/` - Helper scripts for validation
+- `quick-prompts.md` - Direct prompts for immediate use without context setup
 
 ## Getting Started
 
