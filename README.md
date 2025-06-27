@@ -9,6 +9,7 @@ This repository helps you generate clean, working Terraform examples for AWSCC r
 - Use realistic configurations based on CloudFormation documentation
 - Work out-of-the-box with minimal setup
 - Are ready for documentation or production use
+- Focus on resources that don't already have comprehensive examples
 
 ## Quick Start
 
