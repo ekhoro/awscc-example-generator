@@ -57,6 +57,18 @@ q chat "Generate a Terraform example for awscc_[RESOURCE_NAME] configured for [S
 3. **Ask for validation** by adding "and ensure it passes terraform validate"
 4. **Request testing** by adding "include terraform init and plan commands to test"
 
+## What If the Resource Doesn't Exist?
+
+If Amazon Q tells you that an AWSCC resource doesn't exist in the Terraform registry, you have an opportunity to contribute!
+
+**Steps:**
+1. Verify the resource is missing from [terraform-provider-awscc docs](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs)
+2. Check if it's a valid CloudFormation resource
+3. Consider contributing to https://github.com/hashicorp/terraform-provider-awscc
+4. See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidance
+
+**Alternative:** Try the standard AWS provider (`aws_` instead of `awscc_`) which may have the resource you need.
+
 ## Validation
 
 After generating any example, always test it:
