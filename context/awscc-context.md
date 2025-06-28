@@ -7,6 +7,19 @@ Generate high-quality, real-world examples for AWS Cloud Control (AWSCC) provide
 
 **Simple Resource Example:**
 ```terraform
+terraform {
+  required_providers {
+    awscc = {
+      source  = "hashicorp/awscc"
+      version = "~> 1.0"
+    }
+  }
+}
+
+provider "awscc" {
+  region = "us-east-1"
+}
+
 resource "awscc_s3_bucket" "example" {
   bucket_name = "example-bucket"
   
@@ -30,6 +43,14 @@ terraform {
       version = "~> 5.0"
     }
   }
+}
+
+provider "awscc" {
+  region = "us-east-1"
+}
+
+provider "aws" {
+  region = "us-east-1"
 }
 
 resource "aws_iam_role" "example" {
@@ -57,6 +78,32 @@ resource "awscc_lambda_function" "example" {
 }
 ```
 
+**Simple AWSCC-only Resource:**
+```terraform
+terraform {
+  required_providers {
+    awscc = {
+      source  = "hashicorp/awscc"
+      version = "~> 1.0"
+    }
+  }
+}
+
+provider "awscc" {
+  region = "us-east-1"
+}
+
+resource "awscc_sns_topic" "example" {
+  topic_name   = "example-topic"
+  display_name = "Example SNS Topic"
+  
+  tags = [{
+    key   = "Name"
+    value = "Example SNS Topic"
+  }]
+}
+```
+
 ## Key Principles
 - **Simplicity over completeness** - Focus on demonstrating the resource
 - **Direct configuration** - Use hardcoded values, avoid unnecessary abstraction
@@ -75,6 +122,7 @@ resource "awscc_lambda_function" "example" {
 
 ## Generation Rules
 - Generate only a single .tf file
+- **Always include provider configuration with region** - AWSCC provider requires explicit configuration
 - Include terraform/provider blocks when using both AWS and AWSCC providers
 - No variables unless absolutely essential for the example
 - No outputs unless they demonstrate important resource attributes
@@ -85,3 +133,4 @@ resource "awscc_lambda_function" "example" {
 - Include realistic attribute values based on CloudFormation documentation
 - Add standard tags when the resource supports them
 - When AWSCC resources require supporting resources, use the standard AWS provider for prerequisites
+- **Default to us-east-1 region** unless the resource requires a specific region
