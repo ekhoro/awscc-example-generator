@@ -33,14 +33,14 @@ q chat "Generate a clean, working Terraform example for awscc_secretsmanager_sec
 Single Terraform files (`.tf`) with clean resource configurations like:
 
 ```terraform
-resource "awscc_appconfig_application" "example" {
-  name        = "example-application"
-  description = "Example AppConfig application for managing configuration data"
+resource "awscc_sns_topic" "example" {
+  topic_name   = "example-topic"
+  display_name = "Example SNS Topic"
 
   tags = [
     {
       key   = "Name"
-      value = "Example AppConfig Application"
+      value = "Example SNS Topic"
     },
     {
       key   = "Environment"
