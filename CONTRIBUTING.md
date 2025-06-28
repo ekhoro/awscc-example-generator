@@ -1,63 +1,48 @@
 # Contributing to the AWSCC Ecosystem
 
-## Found a Missing Resource?
+## Generated a Working Example for a Resource Without Documentation?
 
-If you try to generate an example for an AWSCC resource that doesn't exist in the Terraform registry, you have an opportunity to contribute to the open source community!
+If you successfully generate a working Terraform example for an AWSCC resource that lacks documentation or examples, consider contributing it to the official terraform-provider-awscc repository!
 
-### Steps to Contribute Missing Resources
+### How to Contribute Your Examples
 
-1. **Verify the resource is missing**
-   - Check the [terraform-provider-awscc documentation](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs)
-   - Search for the resource name (e.g., `awscc_service_resource`)
+1. **Verify your example works**
+   ```bash
+   terraform init
+   terraform validate
+   terraform plan
+   ```
 
-2. **Check if it's a valid CloudFormation resource**
-   - Look up the resource in [AWS CloudFormation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
-   - Ensure it's supported by AWS Cloud Control API
+2. **Check if the resource needs examples**
+   - Visit [terraform-provider-awscc documentation](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs)
+   - Look for resources with minimal or missing usage examples
+   - Check the [terraform-provider-awscc repository](https://github.com/hashicorp/terraform-provider-awscc)
 
-3. **Contribute to terraform-provider-awscc**
-   - Visit: https://github.com/hashicorp/terraform-provider-awscc
-   - Check existing issues and pull requests
+3. **Contribute your example**
+   - Fork https://github.com/hashicorp/terraform-provider-awscc
+   - Add your example to the appropriate documentation
    - Follow their contribution guidelines
-   - Submit a feature request or pull request
+   - Submit a pull request
+
+### What Makes a Good Contribution
+
+- **Working examples** that pass `terraform validate` and `plan`
+- **Realistic configurations** based on actual use cases
+- **Clear, minimal code** that demonstrates the resource
+- **Proper documentation** explaining the example's purpose
 
 ### Why Contribute?
 
-- **Help the community** - Make resources available for everyone
-- **Learn CloudFormation** - Understand AWS service schemas better  
+- **Help the community** - Your examples help other developers
+- **Improve documentation** - Fill gaps in official docs
 - **Open source impact** - Contribute to widely-used infrastructure tools
-- **Professional growth** - Build experience with Terraform providers
+- **Professional recognition** - Build your open source profile
 
-### What You'll Need
+### Alternative: Missing Resources
 
-- Understanding of the AWS service and its CloudFormation resource
-- Basic Go programming knowledge (for implementation)
-- Terraform provider development experience (helpful but not required)
-
-### Alternative: Use AWS Provider
-
-While waiting for AWSCC support, you might be able to use the standard AWS provider:
+If the AWSCC resource doesn't exist at all, you might:
 - Check if `aws_service_resource` exists in [terraform-provider-aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- AWS provider often has more mature resource coverage
-
-## Contributing to This Repository
-
-Found ways to improve this example generator? We welcome contributions!
-
-### Ideas for Contributions
-
-- Additional quick prompt templates
-- More sample examples for complex resources
-- Improved validation scripts
-- Better documentation
-- Support for additional use cases
-
-### How to Contribute
-
-1. Fork this repository
-2. Create a feature branch
-3. Make your improvements
-4. Test thoroughly
-5. Submit a pull request
+- Consider contributing the missing resource implementation to terraform-provider-awscc
 
 ## Community Resources
 

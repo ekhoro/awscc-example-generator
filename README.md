@@ -77,4 +77,4 @@ Follow the setup guides in order:
 - Check existing examples in `examples/sample-outputs/`
 - Use the validation script in `scripts/validate.sh`
 - Refer to [terraform-provider-awscc documentation](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs)
-- **Missing a resource?** See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute to terraform-provider-awscc
+- **Generated a working example?** Consider contributing it to [terraform-provider-awscc](https://github.com/hashicorp/terraform-provider-awscc) - see [CONTRIBUTING.md](CONTRIBUTING.md)
